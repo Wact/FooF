@@ -28,10 +28,6 @@ import localhost.foof.R;
 import static localhost.foof.activities.MainActivity.account;
 
 /**
- * Created by ARTEM on 22.03.2017.
- */
-
-/**
  * Активность Регистрации отображается при нажатии кнопки 'Корзина' в toolbar'е
  *      или по нажатию в левом боковом меню кнопки 'Заказать'
  */

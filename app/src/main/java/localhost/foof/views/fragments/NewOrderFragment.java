@@ -14,11 +14,6 @@ import java.util.ArrayList;
 import localhost.foof.R;
 import localhost.foof.models.Product;
 import localhost.foof.network.RetrofitHelper;
-
-/**
- * Created by ARTEM on 10.04.2017.
- */
-
 /**
  * Класс Фрагмент Новый Заказ отображает список товаров при помощи ListView
  */

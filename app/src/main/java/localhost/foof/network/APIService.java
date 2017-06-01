@@ -10,10 +10,6 @@ import retrofit2.http.FormUrlEncoded;
 import retrofit2.http.POST;
 
 /**
- * Created by ARTEM on 27.05.2017.
- */
-
-/**
  * Retrofit интерфейс для взаимодействия с сервером
  */
 public interface APIService {

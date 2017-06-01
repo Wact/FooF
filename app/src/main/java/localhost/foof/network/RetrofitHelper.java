@@ -18,10 +18,6 @@ import retrofit2.Retrofit;
 import retrofit2.converter.gson.GsonConverterFactory;
 
 /**
- * Created by ARTEM on 27.05.2017.
- */
-
-/**
  * Класс создания асинхронных Retrofit-запросов к серверу
  */
 public class RetrofitHelper extends Application {

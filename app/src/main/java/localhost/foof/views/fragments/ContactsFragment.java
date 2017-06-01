@@ -10,10 +10,6 @@ import android.view.ViewGroup;
 import localhost.foof.R;
 
 /**
- * Created by ARTEM on 09.04.2017.
- */
-
-/**
  * Класс Фрагмент Контакты, в котором отображается информация о разработчике
  */
 public class ContactsFragment extends Fragment {

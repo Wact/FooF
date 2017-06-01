@@ -4,10 +4,6 @@ import android.os.Parcel;
 import android.os.Parcelable;
 
 /**
- * Created by ARTEM on 21.03.2017.
- */
-
-/**
  * Класс Товар
  */
 public class Product implements Parcelable{

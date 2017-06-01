@@ -1,10 +1,6 @@
 package localhost.foof.models;
 
 /**
- * Created by ARTEM on 28.05.2017.
- */
-
-/**
  * Класс Аккаунт
  */
 public class Account {

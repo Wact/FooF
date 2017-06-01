@@ -19,10 +19,6 @@ import localhost.foof.R;
 import localhost.foof.models.Product;
 
 /**
- * Created by ARTEM on 21.03.2017.
- */
-
-/**
  * Класс Адаптер Продуктов, определяющий отображение товара
  */
 public class ProductAdapter extends ArrayAdapter<Product>{

@@ -13,10 +13,6 @@ import retrofit2.Retrofit;
 import retrofit2.converter.gson.GsonConverterFactory;
 
 /**
- * Created by ARTEM on 29.05.2017.
- */
-
-/**
  * Класс создания синхронных Retrofit-запросов к серверу
  */
 public class NetworkHandler extends AsyncTask<String, Void, String> {
