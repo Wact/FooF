@@ -1,0 +1,87 @@
+<?xml version="1.0" encoding="utf-8"?>
+<!--
+  ~ Copyright (c) 2017.
+  ~
+  ~ Permission is hereby granted, free of charge, to any person obtaining a copy
+  ~ of this software and associated documentation files (the "Software"), to deal
+  ~ in the Software without restriction, including without limitation the rights
+  ~ to use, copy, modify, merge, publish, distribute, sublicense, and/or sell
+  ~ copies of the Software, and to permit persons to whom the Software is
+  ~ furnished to do so, subject to the following conditions:
+  ~
+  ~ The above copyright notice and this permission notice shall be included in all
+  ~ copies or substantial portions of the Software.
+  ~
+  ~ THE SOFTWARE IS PROVIDED "AS IS", WITHOUT WARRANTY OF ANY KIND, EXPRESS OR
+  ~ IMPLIED, INCLUDING BUT NOT LIMITED TO THE WARRANTIES OF MERCHANTABILITY,
+  ~ FITNESS FOR A PARTICULAR PURPOSE AND NONINFRINGEMENT. IN NO EVENT SHALL THE
+  ~ AUTHORS OR COPYRIGHT HOLDERS BE LIABLE FOR ANY CLAIM, DAMAGES OR OTHER
+  ~ LIABILITY, WHETHER IN AN ACTION OF CONTRACT, TORT OR OTHERWISE, ARISING FROM,
+  ~ OUT OF OR IN CONNECTION WITH THE SOFTWARE OR THE USE OR OTHER DEALINGS IN THE
+  ~ SOFTWARE.
+  -->
+
+<resources>
+    <string name="app_name">FooF</string>
+    <string name="item_name">Item name</string>
+
+    <string name="textContacts">© Артём Малыгин, 2017\nIT School Samsung</string>
+    <string name="leftDrawerCap">Войти в аккаунт</string>
+    <string name="products">Товары</string>
+    <string name="confirmOrder">Заказать</string>
+    <string name="myOrders">Мои заказы</string>
+    <string name="bonus">"Ваши бонусы: "</string>
+    <string name="contacts">Контакты</string>
+    <string name="makeOrder">Пожалуйста, выберите товары</string>
+    <string name="fillFields">Не все поля заполнены</string>
+    <string name="wrongMail">Неправильный формат почты</string>
+    <string name="connection">Пожалуйста, проверьте подключение к интернету</string>
+    <string name="wrongPassword">Пароль должен быть длиннее 8 символов</string>
+    <string name="wrongPhone">Номер телефона должен быть длиннее 7 символов</string>
+    <string name="pass">Пароль</string>
+
+    <string name="product">Товар</string>
+    <string name="price">Цена</string>
+    <string name="count">Кол-во</string>
+    <string name="add">Добавить</string>
+    <string name="remove">Удалить</string>
+    <string name="createOrder">Сделать заказ</string>
+    <string name="clearFields">Очистить поля</string>
+
+    <string name="your_order">Ваш заказ:</string>
+    <string name="enter_information_about_you">Введите информацию о себе</string>
+    <string name="first_name">Имя</string>
+    <string name="last_name">Фамилия</string>
+    <string name="phone">Телефон</string>
+    <string name="e_mail">Почта</string>
+    <string name="destination_address">Адрес доставки</string>
+    <string name="enter_account">Войдите в аккаунт, чтобы следить за своими заказами</string>
+    <string name="statusActive">"Статус: в обработке"</string>
+    <string name="statusExecuted">"Статус: выполнен"</string>
+    <string name="secondName">"Фамилия: "</string>
+    <string name="cost">"Стоимость: "</string>
+    <string name="firstName">"Имя: "</string>
+    <string name="address">"Адрес: "</string>
+    <string name="productList">"Товары: "</string>
+    <string name="status">"Статус: "</string>
+    <string name="comment">"Комментарий: "</string>
+
+    <string name="exit">Выход</string>
+    <string name="remind_password">Напомнить Пароль</string>
+    <string name="register">Зарегистрироваться</string>
+    <string name="login">Войти</string>
+    <string name="confirm_registration">подтвердить регистрацию</string>
+    <string name="log">Логин</string>
+    <string name="meeting">Приветствуем Вас!</string>
+    <string name="login_occupied">Почта занята</string>
+    <string name="cart">Корзина</string>
+    <string name="wrong_mail_pass">Неправильные почта и/или пароль</string>
+
+    <string-array name="drawer_items">
+        <item>Аккаунт</item>
+        <item>Товары</item>
+        <item>Заказать</item>
+        <item>Мои заказы</item>
+        <item>Контакты</item>
+    </string-array>
+</resources>
