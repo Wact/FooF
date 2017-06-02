@@ -1,0 +1,101 @@
+
+/*
+	CSS-файл, описывающий внешний вид документа
+*/
+
+body {
+	background-size: 1366px, 768px;
+	overflow-x: auto;
+    min-width: 1024px;
+	z-index: 0;
+}
+	
+.container {
+    position: relative;
+	margin: 0 auto;
+    width: 700px;
+    height: 700px;
+    z-index: 2;
+}
+	
+#content {
+	background-color: #FFEFDB;
+}
+
+#leds {
+	position: relative;
+	margin: 0 auto;
+	width: 700px;
+	height: 100px;
+	z-index: 2;
+}
+
+#error {
+	color: #FF0000;
+}
+
+#greeting {
+	color: #0000FF;
+}
+
+#authorization {
+	position: relative;
+	margin: 0 auto;
+	margin-top: 20%;
+	text-align: center;
+}
+
+#author {
+	color: #ffffff;
+}
+
+table.ordersTable {
+	table-layout: fixed;
+	width: 100%;
+	border: 1;
+}
+
+table tr td.id {
+	width: 20px;
+	z-index: 2;
+}
+
+table tr td.firstName {
+	width: 100px;
+	z-index: 2;
+}
+
+table tr td.secondName {
+	width: 110px;
+	z-index: 2;
+}
+
+table tr td.phone {
+	width: 100px;
+	z-index: 2;
+}
+
+table tr td.mail {
+	width: 150px;
+	z-index: 2;
+}
+
+table tr td.address {
+	width: 110px;
+	z-index: 2;
+}
+
+table tr td.products {
+	width: 110px;
+	z-index: 2;
+}
+
+table tr td.price {
+	width: 50px;
+	z-index: 2;
+}
+
+table tr td.btnCancel {
+	width: 40px;
+	z-index: 2;
+}
