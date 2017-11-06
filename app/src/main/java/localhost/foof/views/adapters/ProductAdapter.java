@@ -12,7 +12,10 @@ import android.widget.TextView;
 
 import com.squareup.picasso.Picasso;
 
+import java.text.DecimalFormat;
+import java.text.DecimalFormatSymbols;
 import java.util.ArrayList;
+import java.util.Locale;
 
 import localhost.foof.views.fragments.NewOrderFragment;
 import localhost.foof.R;
@@ -25,6 +28,9 @@ public class ProductAdapter extends ArrayAdapter<Product>{
     private LayoutInflater inflater;
     private int layout;
     private ArrayList<Product> products;
+    private final String pattern = "##0.00";
+    private final DecimalFormatSymbols otherSymbols = new DecimalFormatSymbols(Locale.US);
+    private final DecimalFormat decimalFormat = new DecimalFormat(pattern, otherSymbols);
 
     public ProductAdapter(Context context, int resource, ArrayList<Product> products) {
         super(context, resource, products);
@@ -35,7 +41,7 @@ public class ProductAdapter extends ArrayAdapter<Product>{
 
     @NonNull
     @Override
-    public View getView(final int position, View convertView, ViewGroup parent) {
+    public View getView(final int position, View convertView, @NonNull ViewGroup parent) {
         final ViewHolder viewHolder;
         NewOrderFragment.products = products;
         if(convertView == null) {
@@ -63,18 +69,22 @@ public class ProductAdapter extends ArrayAdapter<Product>{
             @Override
             public void onClick(View view) {
                 int newCount = products.get(position).getCount()+1;
-                products.get(position).setCount(newCount);
+                product.setCount(newCount);
                 viewHolder.countView.setText(Integer.toString(newCount));
+                if(newCount>1)
+                    viewHolder.priceView.setText("" + decimalFormat.format(Float.parseFloat(product.getPrice()) * newCount));
             }
         });
 
         viewHolder.removeButton.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view) {
-                if(products.get(position).getCount()>0) {
+                if(product.getCount()>0) {
                     int newCount = products.get(position).getCount()-1;
-                    products.get(position).setCount(newCount);
+                    product.setCount(newCount);
                     viewHolder.countView.setText(Integer.toString(newCount));
+                    if(newCount>0)
+                        viewHolder.priceView.setText("" + decimalFormat.format(Float.parseFloat(product.getPrice()) * newCount));
                 }
             }
         });

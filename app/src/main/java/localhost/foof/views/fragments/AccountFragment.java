@@ -1,5 +1,6 @@
 package localhost.foof.views.fragments;
 
+import android.content.Context;
 import android.content.Intent;
 import android.os.Bundle;
 import android.support.annotation.Nullable;
@@ -78,14 +79,15 @@ public class AccountFragment extends Fragment{
                         toast = Toast.makeText(getContext(), R.string.wrong_mail_pass, Toast.LENGTH_LONG);
                     } else {
                         toast = Toast.makeText(getContext(),R.string.meeting, Toast.LENGTH_LONG);
-                        try {
+                        writeFile();
+                        /*try {
                             FileOutputStream fos = getContext().openFileOutput("content.txt", MODE_APPEND);
                             byte[] bytes = account.toString().getBytes();
                             fos.write(bytes);
                             fos.close();
                         } catch (IOException e) {
                             e.printStackTrace();
-                        }
+                        }*/
                     }
                     toast.show();
                     startActivity(intent);
@@ -125,19 +127,32 @@ public class AccountFragment extends Fragment{
                 @Override
                 public void onClick(View view) {
                     account = new JSONObject();
-                    try {
+                    writeFile();
+                    /*try {
                         FileOutputStream fos = getContext().openFileOutput("content.txt", MODE_APPEND);
                         byte[] bytes = account.toString().getBytes();
                         fos.write(bytes);
                         fos.close();
                     } catch (IOException e) {
                         e.printStackTrace();
-                    }
+                    }*/
                     Intent intent = new Intent(getContext(), MainActivity.class);
                     startActivity(intent);
                 }
             });
             return view;
+        }
+    }
+
+    public void writeFile() {
+        try {
+            FileOutputStream fos = getContext().openFileOutput("content.txt", MODE_APPEND);
+            byte[] bytes = account.toString().getBytes();
+            fos.write(bytes);
+            fos.flush();
+            fos.close();
+        } catch (IOException e) {
+            e.printStackTrace();
         }
     }
 }

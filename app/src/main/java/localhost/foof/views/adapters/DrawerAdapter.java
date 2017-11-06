@@ -3,6 +3,7 @@ package localhost.foof.views.adapters;
 import android.app.Activity;
 import android.content.Context;
 import android.support.annotation.NonNull;
+import android.view.Gravity;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
@@ -51,6 +52,7 @@ public class DrawerAdapter extends ArrayAdapter<ItemModel> {
             left_relative.setBackgroundResource(R.color.colorCap);
             mName.setHeight(185);
             mName.setTextSize(24);
+            mName.setGravity(Gravity.CENTER_VERTICAL);
         }
 
         return listItem;

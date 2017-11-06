@@ -105,6 +105,8 @@ public class OrderActivity extends AppCompatActivity{
             case "NULL":
                 comment = "";
                 break;
+            case "OK":
+                comment = getString(R.string.comment_success);
         }
 
         tvId.setText("#: "+id);

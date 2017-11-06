@@ -1,6 +1,7 @@
 package localhost.foof.activities;
 
 import android.app.ProgressDialog;
+import android.content.Context;
 import android.content.Intent;
 import android.os.Bundle;
 import android.support.v4.app.Fragment;
@@ -22,7 +23,9 @@ import org.json.JSONException;
 import java.io.File;
 import java.io.FileInputStream;
 import java.io.FileNotFoundException;
+import java.io.FileOutputStream;
 import java.io.IOException;
+import java.io.OutputStreamWriter;
 import java.io.StreamCorruptedException;
 import java.util.concurrent.ExecutionException;
 
@@ -36,6 +39,7 @@ import localhost.foof.models.Product;
 import localhost.foof.R;
 import localhost.foof.models.ItemModel;
 
+import static android.os.ParcelFileDescriptor.MODE_APPEND;
 import static localhost.foof.views.fragments.NewOrderFragment.postProducts;
 import static localhost.foof.views.fragments.NewOrderFragment.products;
 
@@ -46,10 +50,9 @@ public class MainActivity extends AppCompatActivity implements DrawerLayout.Draw
     public File file = null;
     public static JSONObject account;
 
-    private ProgressDialog dialog;
     private String[] mItemTitles;
     private DrawerLayout mDrawerLayout;
-    public static ListView mDrawerListView;
+    public ListView mDrawerListView;
     private Toolbar mToolbar;
     private CharSequence mTitle;
     private ActionBarDrawerToggle mDrawerToggle;
@@ -61,25 +64,17 @@ public class MainActivity extends AppCompatActivity implements DrawerLayout.Draw
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_main);
 
-        dialog = new ProgressDialog(getApplicationContext());
+        ProgressDialog dialog = new ProgressDialog(getApplicationContext());
         dialog.setMessage("Please wait...");
         dialog.setCancelable(false);
 
         NetworkHandler networkHandler = new NetworkHandler(getApplicationContext());
 
         try {
-            FileInputStream fis = openFileInput("content.txt");
-            byte[] bytes = new byte[fis.available()];
-            fis.read(bytes);
-            account = new JSONObject(new String (bytes));
-            fis.close();
+            readFile(getApplicationContext());
             networkHandler.execute("getAccount", account.get("mail").toString(), account.get("password").toString());
-            account = new JSONObject(networkHandler.get());
-        } catch (FileNotFoundException | StreamCorruptedException e) {
-            file = new File("content.txt");
-            account = new JSONObject();
-            e.printStackTrace();
-        } catch (IOException | JSONException | InterruptedException | ExecutionException e) {
+            account = networkHandler.get() == null ? new JSONObject() : new JSONObject(networkHandler.get());
+        } catch (JSONException | InterruptedException | ExecutionException e) {
             e.printStackTrace();
         }
 
@@ -297,4 +292,29 @@ public class MainActivity extends AppCompatActivity implements DrawerLayout.Draw
     public void onBackPressed() {
         System.exit(0);
     }
+
+    public static void readFile(Context context) {
+        try {
+            FileInputStream fis = context.openFileInput("content.txt");
+            byte[] bytes = new byte[fis.available()];
+            fis.read(bytes);
+            account = new JSONObject(new String (bytes));
+            fis.close();
+        } catch (IOException | JSONException e) {
+            e.printStackTrace();
+        }
+    }
+
+    /*public static void writeFile(JSONObject jsonObject, Context context) {
+        context = mainContext;
+        try {
+            FileOutputStream fos = mainContext.openFileOutput("content.txt", MODE_APPEND);
+            byte[] bytes = jsonObject.toString().getBytes();
+            fos.write(bytes);
+            fos.flush();
+            fos.close();
+        } catch (IOException e) {
+            e.printStackTrace();
+        }
+    }*/
 }

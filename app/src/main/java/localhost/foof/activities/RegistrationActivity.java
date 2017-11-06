@@ -28,9 +28,12 @@ import java.security.MessageDigest;
 import java.security.NoSuchAlgorithmException;
 import java.util.ArrayList;
 import java.util.Objects;
+import java.util.concurrent.ExecutionException;
 
 import localhost.foof.network.NetworkHandler;
 import localhost.foof.R;
+
+import static localhost.foof.activities.MainActivity.account;
 
 /**
  * Активность Регистрации отображается при нажатии кнопки 'Зарегистрироваться' в Фрагменте Аккаунт
@@ -169,22 +172,25 @@ public class RegistrationActivity extends AppCompatActivity {
                         e.printStackTrace();
                     }
                     NetworkHandler networkHandler = new NetworkHandler(getApplicationContext());
-                    String result = networkHandler.execute("setAccount", mail, password, jsonDataAboutAccount.toString()).toString();
+                    networkHandler.execute("setAccount", mail, password, jsonDataAboutAccount.toString()).toString();
+                    String result = null;
+                    try {
+                        result = networkHandler.get();
+                    } catch (InterruptedException | ExecutionException e) {
+                        e.printStackTrace();
+                    }
                     if(Objects.equals(result, "Login is occupied")) {
                         Toast toast = Toast.makeText(getApplicationContext(), getString(R.string.login_occupied), Toast.LENGTH_LONG);
                         toast.show();
                     } else {
                         try {
-                            FileOutputStream fos = openFileOutput("content.txt", MODE_APPEND);
-                            MainActivity.account.put("mail",mail);
-                            MainActivity.account.put("password",password);
-                            MainActivity.account.put("dataAboutAccount",jsonDataAboutAccount);
-                            MainActivity.account.put("orders","[]");
-                            MainActivity.account.put("bonus","0");
-                            byte[] bytes = MainActivity.account.toString().getBytes();
-                            fos.write(bytes);
-                            fos.close();
-                        } catch (IOException | JSONException e) {
+                            account.put("mail",mail);
+                            account.put("password",password);
+                            account.put("dataAboutAccount",jsonDataAboutAccount);
+                            account.put("orders","[]");
+                            account.put("bonus","0");
+                            writeFile();
+                        } catch (JSONException e) {
                             e.printStackTrace();
                         }
                         Intent intent = new Intent(getApplicationContext(), MainActivity.class);
@@ -311,5 +317,17 @@ public class RegistrationActivity extends AppCompatActivity {
         // See https://g.co/AppIndexing/AndroidStudio for more information.
         AppIndex.AppIndexApi.end(client, getIndexApiAction());
         client.disconnect();
+    }
+
+    public void writeFile() {
+        try {
+            FileOutputStream fos = getApplicationContext().openFileOutput("content.txt", MODE_APPEND);
+            byte[] bytes = account.toString().getBytes();
+            fos.write(bytes);
+            fos.flush();
+            fos.close();
+        } catch (IOException e) {
+            e.printStackTrace();
+        }
     }
 }

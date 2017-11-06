@@ -33,6 +33,14 @@
             android:layout_height="wrap_content"
             android:layout_below="@+id/priceView">
 
+            <Button
+                android:id="@+id/removeButton"
+                android:text="-"
+                android:textSize="19sp"
+                android:gravity="center|center_vertical"
+                android:layout_width="60dp"
+                android:layout_height="40dp" />
+
             <TextView
                 android:id="@+id/countView"
                 android:textSize="22sp"
@@ -43,16 +51,10 @@
             <Button
                 android:id="@+id/addButton"
                 android:text="+"
-                android:textSize="24sp"
+                android:textSize="19sp"
+                android:gravity="center|center_vertical"
                 android:layout_width="60dp"
-                android:layout_height="50dp" />
-
-            <Button
-                android:id="@+id/removeButton"
-                android:text="-"
-                android:textSize="24sp"
-                android:layout_width="60dp"
-                android:layout_height="50dp" />
+                android:layout_height="40dp" />
         </LinearLayout>
     </RelativeLayout>
 </LinearLayout>

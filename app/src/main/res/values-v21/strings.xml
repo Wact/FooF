@@ -55,6 +55,7 @@
     <string name="login_occupied">E-mail is occupied</string>
     <string name="cart">Cart</string>
     <string name="wrong_mail_pass">Wrong e-mail or password</string>
+    <string name="comment_success">Success</string>
 
     <string-array name="drawer_items">
         <item>Account</item>

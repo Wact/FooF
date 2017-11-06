@@ -55,6 +55,7 @@
     <string name="login_occupied">Почта занята</string>
     <string name="cart">Корзина</string>
     <string name="wrong_mail_pass">Неправильные почта и/или пароль</string>
+    <string name="comment_success">Успешно</string>
 
     <string-array name="drawer_items">
         <item>Аккаунт</item>
